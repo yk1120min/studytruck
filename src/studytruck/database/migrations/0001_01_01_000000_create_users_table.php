@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->text('bio')->nullable();
             $table->string('public_id',30)->unique();
+            $table->timestamps();
         });
 
         // Schema::create('password_reset_tokens', function (Blueprint $table) {

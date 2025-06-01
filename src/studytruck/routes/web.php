@@ -30,7 +30,7 @@ Route::redirect('/', '/dashboard');
 
 Route::get('/dashboard',[DashboardController::class, 'index'])
     ->middleware('auth')
-    ->name('dashboard.index');
+    ->name('dashboard');
 
 Route::post('/dashboard', [DashboardController::class, 'search'])
     ->middleware('auth')
