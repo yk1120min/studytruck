@@ -1,0 +1,25 @@
+# ベースイメージとして PHP 8.2 の FPM（FastCGI）バージョンを使用
+# LaravelはNginxと連携して動かすため、Apache版ではなくFPM版を選ぶ
+FROM php:8.2-fpm
+
+# Linuxパッケージマネージャで Laravel に必要なツールや開発ライブラリをインストール
+# - git, curl, zip, unzip: LaravelやComposerの動作に必要
+# - libpq-dev: PostgreSQL拡張（pdo_pgsql）ビルドに必要
+# - libzip-dev: zip拡張のビルドに必要
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    zip \
+    unzip \
+    libpq-dev \
+    libzip-dev \
+    && docker-php-ext-install pdo pdo_pgsql zip
+    # ↑ PHP拡張（pdo, pdo_pgsql, zip）をビルドして有効化
+
+# Composer（PHP用のパッケージマネージャ）を公式Composerイメージからコピー
+# 自前でcurlインストールより高速で安全
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# コンテナ内での作業ディレクトリを Laravel プロジェクトのルートに設定
+# このディレクトリをベースにファイル操作やコマンドが実行される
+WORKDIR /var/www/html

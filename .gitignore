@@ -1,0 +1,64 @@
+# ========================
+# Laravel 関連（vendorなどの依存パッケージ）
+# ========================
+
+# 通常のLaravelプロジェクト直下のvendor（保険として入れる）
+/vendor/
+
+# Laravel本体が src/studytruck 内にある場合のvendor
+/src/studytruck/vendor/
+
+# Node.jsのパッケージ（npm/yarnで再インストール可能・これも重い）
+/node_modules
+
+# 環境ごとに異なる機密情報（APIキーやDBパスワード含むので絶対Gitに入れない）
+/.env
+/src/studytruck/.env
+
+
+# ========================
+# Laravel のキャッシュ・ログ系（共有不要）
+# ========================
+
+# 公開用ストレージ（public/storage にシンボリックリンク作成されるので除外）
+/storage/app/public
+/src/studytruck/storage/app/public
+
+# キャッシュやセッションなど（再生成される）
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/views
+/storage/logs
+/src/studytruck/storage/framework/cache
+/src/studytruck/storage/framework/sessions
+/src/studytruck/storage/framework/views
+/src/studytruck/storage/logs
+
+
+# ========================
+# 開発環境固有のゴミファイル
+# ========================
+
+# macOSが勝手に作るファイル（開発には不要）
+.DS_Store
+
+# Vimの一時ファイル（.swp は保存時に一瞬だけ出る）
+*.swp
+*.swo
+
+
+# ========================
+# IDE（エディタ）設定ファイル
+# ========================
+
+# PHPStormなどJetBrains製IDE用
+.idea/
+
+# VSCodeの個人設定
+.vscode/
+
+
+# ========================
+# Docker 関連（開発用のDBファイルなど）
+# ========================
+
