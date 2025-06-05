@@ -32,9 +32,10 @@ Route::get('/dashboard',[DashboardController::class, 'index'])
     ->middleware('auth')
     ->name('dashboard');
 
-Route::post('/dashboard', [DashboardController::class, 'search'])
-    ->middleware('auth')
-    ->name('dashboard.search');
+
+//Route::post('/dashboard', [DashboardController::class, 'search'])
+//    ->middleware('auth')
+//    ->name('dashboard.search');
 
 Route::get('/records/create', [RecordController::class, 'create'])
     ->middleware('auth')
