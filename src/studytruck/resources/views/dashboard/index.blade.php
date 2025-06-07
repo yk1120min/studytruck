@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- 左上のユーザーID検索フォーム -->
-    <form action="{{ route('dashboard.search') }}" method="POST" 
+    <form action="{{ route('users.records.index', ['public_id' => $user->public_id]) }}" method="GET" 
           class="absolute top-4 left-4 rounded flex items-center space-x-2"> 
         @csrf
         <button type="submit" class="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600">検索</button> 
@@ -51,9 +51,9 @@
             <tbody>
                 @foreach ($learningLogs as $log)
                     <tr>
-                        <td class="p-2 border border-black border-r-0">{{ $log->title }}</td>
-                        <td class="p-2 border border-black border-l-0 border-r-0">{{ $log->category }}</td>
-                        <td class="p-2 border border-black border-l-0 text-left">{{ $log->minutes }} 分</td>
+                        <td class="p-2 border border-black border-r-0 bg-white">{{ $log->title }}</td>
+                        <td class="p-2 border border-black border-l-0 border-r-0 bg-white">{{ $log->category }}</td>
+                        <td class="p-2 border border-black border-l-0 text-left bg-white">{{ $log->minutes }} 分</td>
                         <td class="p-2 border-0 text-center w-[100px]">
                             <a href="{{ route('records.edit', $log->id) }}"
                                 class="px-3 py-1 bg-blue-400 text-black rounded hover:bg-blue-600 text-xl">
