@@ -17,7 +17,9 @@ class UserSeeder extends Seeder
         'name' => 'test',
         'email' => 'test@example.com',
         'password' => bcrypt('test'),
-        'bio' => 'test',
+        'bio' => 'Laravelを勉強中の社会人エンジニアです。
+                  毎日30分以上、コツコツ学習ログを記録しています。
+                  将来的にはポートフォリオサイトを作るのが目標です！',
         'public_id' => 'test'
     ]);
     }
