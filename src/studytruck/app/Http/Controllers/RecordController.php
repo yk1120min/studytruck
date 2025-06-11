@@ -30,9 +30,35 @@ class RecordController extends Controller
     $learningLog->save();
 
     // リダイレクト（ダッシュボードなどに戻す）
-    return redirect()->route('dashboard'):
+    return redirect()->route('dashboard');
+    }
 
 
+    public function edit($id){
+         $learningLog = Learninglog::findOrFail($id); // ID で取得
+    
+        return view('records.edit',compact('learningLog'));
+    }
+
+    public function update(Request $request, $id){
+    // バリデーション
+    $validated = $request->validate([
+        'title'    => 'required|string|max:50',
+        'category' => 'required|string',
+        'minutes'  => 'required|integer|min:1',
+        'memo'     => 'nullable|string|max:500',
+    ]);
+    $learningLog = Learninglog::findOrFail($id);
+    
+    $learningLog->title = $validated['title']; 
+    $learningLog->category = $validated['category'];
+    $learningLog->minutes = $validated['minutes'];
+    $learningLog->memo = $validated['memo'];   
+    $learningLog->save();
+
+    return redirect()->route('dashboard');
 
     }
+
+
 }
