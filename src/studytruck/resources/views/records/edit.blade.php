@@ -7,7 +7,7 @@
         戻る
     </a>
 
-    <!-- 学習記録入力フォーム -->
+    <!-- 学習記録編集フォーム -->
     <form action="{{ route('records.update', ['id' => $learningLog->id]) }}" method="POST" class="mt-20 ml-20">
         @csrf
         @method('PUT')
@@ -34,12 +34,12 @@
             <option value="120" {{$learningLog->minutes == 120 ? 'selected' : '' }}>2時間</option>
         </select>
          
-        <!-- カテゴリ入力 -->
+        <!-- メモ編集 -->
         <label for="memo" class="block text-xl font-bold mb-2 mt-5">メモ</label>
         <input type="text" name="memo" id="memo" value = "{{ $learningLog->memo }}"
                class="border rounded text-2xl w-[1500px] h-40 mb-6">
          
-        <!-- 登録ボタン -->
+        <!-- 編集ボタン -->
         <div>
             <button type="submit"
                     class="text-2xl bg-blue-400 border border-black text-black px-5 py-2 rounded hover:bg-blue-600 absolute bottom-20 right-20">

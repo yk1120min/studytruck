@@ -33,7 +33,7 @@
             <option value="120">2時間</option>
         </select>
          
-        <!-- カテゴリ入力 -->
+        <!-- メモ入力 -->
         <label for="memo" class="block text-xl font-bold mb-2 mt-5">メモ</label>
         <input type="text" name="memo" id="memo" placeholder="メモ"
                class="border rounded text-2xl w-[1500px] h-40 mb-6">
