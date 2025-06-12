@@ -57,9 +57,9 @@ Route::get('users/{public_id}/records', [PublicRecordController::class, 'index']
     ->middleware('auth')
     ->name('users.records.index');
 
-Route::get('profile', [ProfileController::class, 'show'])
-    ->middleware('auth')
-    ->name('profile.show');
+//Route::get('profile', [ProfileController::class, 'show'])
+//    ->middleware('auth')
+//    ->name('profile.show');
 
 Route::get('/profile/edit', [ProfileController::class, 'edit' ])
     ->middleware('auth')
