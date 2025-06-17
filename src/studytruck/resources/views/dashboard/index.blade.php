@@ -12,7 +12,7 @@
 
     {{-- 右上のプロフィール＆ログアウトボタン --}}
     <div class="absolute top-4 right-10 flex flex-col items-end space-y-2">
-        <form action="{{ route('logout') }}" method="POST">
+        <form action="{{ route('logout.confirm') }}" method="GET">
             @csrf
             <button type="submit" class="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600">
                 ログアウト

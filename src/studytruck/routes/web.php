@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PublicRecordController;
 use App\Http\Controllers\RecordController;
+use App\Http\Controllers\LogoutController;
 
 
 
@@ -69,5 +70,8 @@ Route::put('/profile', [ProfileController::class, 'update'])
     ->middleware('auth')
     ->name('profile.update');
 
+Route::get('logout/confirm', [LogoutController::class, 'confirm'])
+    ->middleware('auth')
+    ->name('logout.confirm');
 
 require __DIR__.'/auth.php';
